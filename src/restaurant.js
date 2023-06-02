@@ -6,16 +6,16 @@ const menus = {
 };
 
 const createMenu = (obj) => {
-  const menu = { 
-    fetchMenu: () => obj, 
+  const menu = {
+    fetchMenu: () => obj,
     consumption: [],
     order: (string) => {
-        if (!obj.food[string] && !obj.drinks[string]) {
-         return 'Item indisponível';
+      if (obj.food[string] || obj.drinks[string]) {
+        return menu.consumption.push(string);
       }
-      menu.consumption.push(string);
+      return 'Item indisponível';
     },
-     pay: () => {
+    pay: () => {
       let total = 0;
       for (let index = 0; index < menu.consumption.length; index += 1) {
         const pedidos = menu.consumption[index];
@@ -29,6 +29,6 @@ const createMenu = (obj) => {
     },
   };
   return menu;
-  };
+};
 
 module.exports = createMenu;

@@ -8,15 +8,9 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     //Verificando se o valor da chave fetchMenu do objeto retornado pela função createMenu() é uma função.
     expect(typeof createMenu()['fetchMenu']).toBe('function');
     //Verifica se o objeto retornado pela função createMenu({ food: {}, drinks: {} }).fetchMenu() retorna um objeto cujas chaves são somente food e drinks.
-    expect(
-      Object.keys(createMenu({ food: {}, drinks: {} }).fetchMenu()).length
-    ).toBe(2);
-    expect(createMenu({ food: {}, drinks: {} }).fetchMenu()).toHaveProperty(
-      'food'
-    );
-    expect(createMenu({ food: {}, drinks: {} }).fetchMenu()).toHaveProperty(
-      'drinks'
-    );
+    expect(Object.keys(createMenu({ food: {}, drinks: {} }).fetchMenu()).length).toBe(2);
+    expect(createMenu({ food: {}, drinks: {} }).fetchMenu()).toHaveProperty('food');
+    expect(createMenu({ food: {}, drinks: {} }).fetchMenu()).toHaveProperty('drinks');
     //Verifica se o menu passado pra função createMenu() é idêntico ao menu recuperado pela função createMenu({ food: {}, drinks: {} }).fetchMenu().
     const menu = {
       food: { coxinha: 3.9, sanduiche: 9.9 },
