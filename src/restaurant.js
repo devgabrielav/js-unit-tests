@@ -7,7 +7,9 @@ const menus = {
 
 const createMenu = (obj) => {
   const menu = {
+    //Cria a propriedade como função fetchMenu que quando chamo me retorna o menu que chamei na função createMenu();
     fetchMenu: () => obj,
+    //Cria o objeto consumption que inicialmente é um array vazio;
     consumption: [],
     order: (string) => {
       if (obj.food[string] || obj.drinks[string]) {
